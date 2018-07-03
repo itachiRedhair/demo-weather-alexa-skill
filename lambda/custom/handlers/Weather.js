@@ -2,10 +2,7 @@ const TellWeatherHandler = {
   canHandle(handlerInput) {
     const { request } = handlerInput.requestEnvelope;
 
-    return (
-      request.type === intents.type.IntentRequest &&
-      request.intent.name === intents.TellWeather
-    );
+    return request.type === intents.type.IntentRequest && request.intent.name === 'TellWeather';
   },
 
   async handle(handlerInput) {
@@ -13,7 +10,7 @@ const TellWeatherHandler = {
       .speak(`Here's the weather in London.`)
       .reprompt(`Ask me about weather in New York.`)
       .getResponse();
-  }
+  },
 };
 
 module.exports = { TellWeatherHandler };
