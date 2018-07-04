@@ -1,41 +1,19 @@
 {
   "deploy_settings": {
     "alexa-user": {
-      "skill_id": "amzn1.ask.skill.0bacc50a-5e85-49a8-a5ec-7022e427dd9c",
+      "skill_id": "",
       "was_cloned": false,
       "merge": {
         "manifest": {
           "apis": {
             "custom": {
               "endpoint": {
-                "uri": "ask-custom-DemoWeather-alexa-user"
+                "uri": "ask-custom-sample-alexa-boilerplate-alexa-user"
               }
             }
           }
         }
-      },
-      "resources": {
-        "manifest": {
-          "eTag": "0ca22092faa21043aa402b4fc7a6fbb3"
-        },
-        "interactionModel": {
-          "en-US": {
-            "eTag": "edceaa72ac13757059cb768ccbdf3b67"
-          }
-        },
-        "lambda": [
-          {
-            "arn": "arn:aws:lambda:us-east-1:933074934269:function:ask-custom-DemoWeather-alexa-user",
-            "functionName": "ask-custom-DemoWeather-alexa-user",
-            "awsRegion": "us-east-1",
-            "alexaUsage": [
-              "custom/default"
-            ],
-            "revisionId": "0dc9b8ed-ce36-47e6-8678-c8c8d50d3c04"
-          }
-        ]
-      },
-      "in_skill_products": []
+      }
     }
   }
 }

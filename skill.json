@@ -6,10 +6,10 @@
           "summary": "Sample Short Description",
           "examplePhrases": [
             "Alexa open hello world",
-            "Alexa tell hello world hello",
-            "Alexa ask hello world say hello"
+            "Alexa tell hello world I am Jeff",
+            "Alexa tell hello world my name is Peter"
           ],
-          "name": "DemoWeather",
+          "name": "sample-alexa-boilerplate",
           "description": "Sample Full Description"
         }
       },

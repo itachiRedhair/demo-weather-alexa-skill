@@ -1,14 +1,11 @@
 {
-  "name": "hello-world",
+  "name": "skill-sample-nodejs-hello-world",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Hello world sample skill",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "ask-sdk": "^2.0.7"
+    "alexa-sdk": "^1.0.0"
   }
 }
