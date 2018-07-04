@@ -8,7 +8,7 @@
           "apis": {
             "custom": {
               "endpoint": {
-                "uri": "ask-custom-sample-alexa-boilerplate-alexa-user"
+                "uri": "ask-custom-sample-alexa-boilerplate2-alexa-user"
               }
             }
           }
