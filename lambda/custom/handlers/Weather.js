@@ -3,8 +3,7 @@ const TellWeatherHandler = {
     const { request } = handlerInput.requestEnvelope;
 
     return (
-      request.type === intents.type.IntentRequest &&
-      request.intent.name === intents.TellWeather
+      request.type === intents.type.IntentRequest && request.intent.name === intents.TellWeather
     );
   },
 
