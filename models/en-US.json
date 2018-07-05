@@ -1,38 +1,26 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "greeter",
-      "types": [
-
-      ],
+      "invocationName": "my weather",
       "intents": [
         {
           "name": "AMAZON.CancelIntent",
-          "samples": [
-
-          ]
+          "samples": []
         },
         {
           "name": "AMAZON.HelpIntent",
-          "samples": [
-
-          ]
+          "samples": []
         },
         {
           "name": "AMAZON.StopIntent",
-          "samples": [
-
-          ]
+          "samples": []
         },
         {
-          "name": "HelloWorldIntent",
-          "slots": [
-
-          ],
+          "name": "TellWeather",
           "samples": [
-            "hello",
-            "say hello",
-            "say hello world"
+            "tell me weather information",
+            "how is the weather",
+            "tell me weather"
           ]
         }
       ]
