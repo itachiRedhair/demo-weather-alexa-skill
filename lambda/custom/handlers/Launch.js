@@ -10,15 +10,23 @@ const LaunchRequestHandler = {
     let prompt = '';
     const reprompt = `Ask for weather in London.`;
 
-    const attributes = (await attributesManager.getPersistentAttributes()) || {};
+    let attributes;
+
+    try {
+      attributes = (await attributesManager.getPersistentAttributes()) || {};
+    } catch (e) {
+      console.log(e);
+      attributes = {};
+    }
 
     if (Object.keys(attributes).length === 0) {
       attributes.isFirstTime = false;
-      attributesManager.setSessionAttributes(attributes);
       prompt += 'I am your weather skill. You can ask me for weather in london.';
     } else {
       prompt += 'Welcome back. I am all ready to help you again. You know the drill.';
     }
+
+    attributesManager.setSessionAttributes(attributes);
 
     return responseBuilder
       .speak(prompt)
