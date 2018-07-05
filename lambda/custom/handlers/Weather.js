@@ -1,3 +1,5 @@
+const Alexa = require('ask-sdk');
+
 const fetchWeather = require('./../utilities/api/fetchWeather');
 const fetchDeviceAddress = require('./../utilities/api/fetchDeviceAddress');
 
@@ -35,14 +37,36 @@ const TellWeatherHandler = {
     let prompt;
     if (weatherInfo) {
       // Generating prompt based on temperature
-      const temperature = weatherInfo.main.temp - 273;
-      prompt = `Currently the temperature in london in ${temperature.toFixed(2)} celsius.`;
+      const temperature = (weatherInfo.main.temp - 273).toFixed(2);
+      prompt = `Currently the temperature in ${cityName} in ${temperature} celsius.`;
 
       // Setting state attribute --> "WEATHER" for contextual response
       const attributes = handlerInput.attributesManager.getSessionAttributes();
       attributes.state = states.WEATHER;
       attributes.weatherInfo = weatherInfo;
       handlerInput.attributesManager.setSessionAttributes(attributes);
+
+      // Display response
+      if (supportsDisplay(handlerInput)) {
+        const backgroundImage = new Alexa.ImageHelper()
+          .addImageInstance(
+            `https://www.pixelstalk.net/wp-content/uploads/2016/07/Download-Free-Weather-Background-768x432.jpg`,
+          )
+          .getImage();
+        const title = `My Weather Skill`;
+        const textContent = new Alexa.RichTextContentHelper()
+          .withPrimaryText(`${cityName.toUpperCase()}`)
+          .withSecondaryText(`Temperature: ${temperature}`)
+          .getTextContent();
+
+        handlerInput.responseBuilder.addRenderTemplateDirective({
+          type: 'BodyTemplate2',
+          backButton: 'visible',
+          backgroundImage,
+          title,
+          textContent,
+        });
+      }
     } else {
       prompt = 'Sorry no weather information is available for this city.';
     }
@@ -89,6 +113,17 @@ const MoreInformationHandler = {
       .reprompt(`Ask me about weather in New York.`)
       .getResponse();
   },
+};
+
+// Returns true if the skill is running on a device with a display (show|spot)
+supportsDisplay = handlerInput => {
+  var hasDisplay =
+    handlerInput.requestEnvelope.context &&
+    handlerInput.requestEnvelope.context.System &&
+    handlerInput.requestEnvelope.context.System.device &&
+    handlerInput.requestEnvelope.context.System.device.supportedInterfaces &&
+    handlerInput.requestEnvelope.context.System.device.supportedInterfaces.Display;
+  return hasDisplay;
 };
 
 module.exports = { TellWeatherHandler, MoreInformationHandler };

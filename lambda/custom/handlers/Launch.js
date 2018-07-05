@@ -41,6 +41,7 @@ const LaunchRequestHandler = {
     return responseBuilder
       .speak(prompt)
       .reprompt(reprompt)
+      .withSimpleCard('My Weather Skill', prompt)
       .getResponse();
   },
 };
