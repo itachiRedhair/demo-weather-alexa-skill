@@ -3,12 +3,25 @@ const LaunchRequestHandler = {
     return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
   },
 
-  handle(handlerInput) {
-    const prompt = `Welcome to your weather skill.`;
+  async handle(handlerInput) {
+    const responseBuilder = handlerInput.responseBuilder;
+    const attributesManager = handlerInput.attributesManager;
+
+    let prompt = '';
     const reprompt = `Ask for weather in London.`;
 
-    return handlerInput.responseBuilder
-      .speak(prompt + ` ` + reprompt)
+    const attributes = (await attributesManager.getPersistentAttributes()) || {};
+
+    if (Object.keys(attributes).length === 0) {
+      attributes.isFirstTime = false;
+      attributesManager.setSessionAttributes(attributes);
+      prompt += 'I am your weather skill. You can ask me for weather in london.';
+    } else {
+      prompt += 'Welcome back. I am all ready to help you again. You know the drill.';
+    }
+
+    return responseBuilder
+      .speak(prompt)
       .reprompt(reprompt)
       .getResponse();
   },
