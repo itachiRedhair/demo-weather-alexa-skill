@@ -9,7 +9,7 @@ const {
   GetAddressError,
   ErrorHandler,
 } = require('./handlers/General');
-const { TellWeatherHandler } = require('./handlers/Weather');
+const { TellWeatherHandler, MoreInformationHandler } = require('./handlers/Weather');
 
 const skillBuilder = Alexa.SkillBuilders.standard();
 
@@ -35,6 +35,7 @@ exports.handler = skillBuilder
   .addRequestHandlers(
     LaunchRequestHandler,
     TellWeatherHandler,
+    MoreInformationHandler,
     HelpIntentHandler,
     CancelAndStopIntentHandler,
     SessionEndedRequestHandler,

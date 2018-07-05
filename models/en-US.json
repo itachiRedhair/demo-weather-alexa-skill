@@ -31,6 +31,15 @@
             "how is the weather",
             "tell me weather"
           ]
+        },
+        {
+          "name": "MoreInformation",
+          "samples": [
+            "tell me more information",
+            "more information",
+            "more",
+            "tell me more"
+          ]
         }
       ]
     }
