@@ -1,3 +1,5 @@
+const fetchProfileInfo = require('./../utilities/api/fetchProfileInfo');
+
 const LaunchRequestHandler = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
@@ -7,7 +9,14 @@ const LaunchRequestHandler = {
     const responseBuilder = handlerInput.responseBuilder;
     const attributesManager = handlerInput.attributesManager;
 
+    const profileInfo = fetchProfileInfo(handlerInput);
+
     let prompt = '';
+
+    if (profileInfo) {
+      prompt += `Hi ${profile.name.split(' ')[0]}`;
+    }
+
     const reprompt = `Ask for weather in London.`;
 
     let attributes;
