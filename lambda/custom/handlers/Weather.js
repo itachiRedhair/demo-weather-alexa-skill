@@ -2,7 +2,7 @@ const fetchWeather = require('./../utilities/api/fetchWeather');
 const fetchDeviceAddress = require('./../utilities/api/fetchDeviceAddress');
 
 const states = {
-  WEATHER: 'WEATHER'
+  WEATHER: 'WEATHER',
 };
 
 const TellWeatherHandler = {
@@ -17,7 +17,7 @@ const TellWeatherHandler = {
 
     let cityName;
     if (citySlot && citySlot.value) {
-      cityName = citySlot.value.toLowerCase();
+      cityName = citySlot.value;
     }
 
     let weatherInfo;
@@ -51,7 +51,7 @@ const TellWeatherHandler = {
       .speak(prompt)
       .reprompt(`Ask me about weather in New York.`)
       .getResponse();
-  }
+  },
 };
 
 const MoreInformationHandler = {
@@ -88,7 +88,7 @@ const MoreInformationHandler = {
       .speak(prompt)
       .reprompt(`Ask me about weather in New York.`)
       .getResponse();
-  }
+  },
 };
 
 module.exports = { TellWeatherHandler, MoreInformationHandler };
