@@ -21,8 +21,7 @@
     "apis": {
       "custom": {
         "endpoint": {
-          "sslCertificateType": "Wildcard",
-          "uri": "https://b888a687.ngrok.io"
+          "sourceDir": "lambda/custom"
         }
       }
     },
