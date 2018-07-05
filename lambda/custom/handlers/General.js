@@ -42,6 +42,24 @@ const SessionEndedRequestHandler = {
   }
 };
 
+const GetAddressError = {
+  canHandle(handlerInput, error) {
+    return error.name === 'ServiceError';
+  },
+  handle(handlerInput, error) {
+    if (error.statusCode === 403) {
+      return handlerInput.responseBuilder
+        .speak('Please provide device address permission from your alexa app.')
+        .withAskForPermissionsConsentCard(['read::alexa:device:all:address'])
+        .getResponse();
+    }
+    return handlerInput.responseBuilder
+      .speak(`Couldn't retrieve location.`)
+      .reprompt(`Couldn't retrieve location.`)
+      .getResponse();
+  }
+};
+
 const ErrorHandler = {
   canHandle() {
     return true;
@@ -60,5 +78,6 @@ module.exports = {
   HelpIntentHandler,
   CancelAndStopIntentHandler,
   SessionEndedRequestHandler,
+  GetAddressError,
   ErrorHandler
 };

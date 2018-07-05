@@ -6,6 +6,7 @@ const {
   HelpIntentHandler,
   CancelAndStopIntentHandler,
   SessionEndedRequestHandler,
+  GetAddressError,
   ErrorHandler
 } = require('./handlers/General');
 const { TellWeatherHandler } = require('./handlers/Weather');
@@ -20,5 +21,5 @@ exports.handler = skillBuilder
     CancelAndStopIntentHandler,
     SessionEndedRequestHandler
   )
-  .addErrorHandlers(ErrorHandler)
+  .addErrorHandlers(GetAddressError, ErrorHandler)
   .lambda();

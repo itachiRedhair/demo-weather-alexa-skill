@@ -1,4 +1,5 @@
 const fetchWeather = require('./../utilities/api/fetchWeather');
+const fetchDeviceAddress = require('./../utilities/api/fetchDeviceAddress');
 
 const TellWeatherHandler = {
   canHandle(handlerInput) {
@@ -19,7 +20,12 @@ const TellWeatherHandler = {
     if (cityName) {
       weatherInfo = await fetchWeather(cityName);
     } else {
-      // TODO: Get Weather based on device address
+      const deviceAddress = await fetchDeviceAddress(handlerInput);
+      console.log(deviceAddress);
+
+      if (deviceAddress && deviceAddress.city) {
+        weatherInfo = await fetchWeather(deviceAddress.city);
+      }
     }
 
     let prompt;
