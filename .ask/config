@@ -20,7 +20,7 @@
         },
         "interactionModel": {
           "en-US": {
-            "eTag": "edceaa72ac13757059cb768ccbdf3b67"
+            "eTag": "45c52d142930ab16c9b8ce1ef31a604e"
           }
         },
         "lambda": [
@@ -31,7 +31,7 @@
             "alexaUsage": [
               "custom/default"
             ],
-            "revisionId": "0dc9b8ed-ce36-47e6-8678-c8c8d50d3c04"
+            "revisionId": "04a3444b-e108-4fc7-9783-59d933f0015b"
           }
         ]
       },
