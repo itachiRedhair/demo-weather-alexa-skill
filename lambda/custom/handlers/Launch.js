@@ -9,12 +9,13 @@ const LaunchRequestHandler = {
     const responseBuilder = handlerInput.responseBuilder;
     const attributesManager = handlerInput.attributesManager;
 
-    const profileInfo = fetchProfileInfo(handlerInput);
+    const profileInfo = await fetchProfileInfo(handlerInput);
 
     let prompt = '';
 
     if (profileInfo) {
-      prompt += `Hi ${profile.name.split(' ')[0]}`;
+      console.log(profileInfo);
+      prompt += `Hi ${profileInfo.name.split(' ')[0]}. `;
     }
 
     const reprompt = `Ask for weather in London.`;
