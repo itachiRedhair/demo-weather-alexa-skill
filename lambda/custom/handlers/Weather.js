@@ -70,6 +70,7 @@ const MoreInformationHandler = {
     const attributes = handlerInput.attributesManager.getSessionAttributes();
     attributes.state = '';
     handlerInput.attributesManager.setSessionAttributes(attributes);
+
     const weatherInfo = attributes.weatherInfo;
 
     let prompt;
