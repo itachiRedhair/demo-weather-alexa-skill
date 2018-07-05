@@ -5,7 +5,7 @@ const TellWeatherHandler = {
     return request.type === 'IntentRequest' && request.intent.name === 'TellWeather';
   },
 
-  async handle(handlerInput) {
+  handle(handlerInput) {
     return handlerInput.responseBuilder
       .speak(`Here's the weather in London.`)
       .reprompt(`Ask me about weather in New York.`)
