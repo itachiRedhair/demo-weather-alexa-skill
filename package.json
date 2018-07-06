@@ -2,7 +2,7 @@
   "name": "demoweather",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lambda/custom/index.js",
   "scripts": {
     "start": "alexa-skill-local --file lambda/custom/index.js --config lambda/custom/asl-config.json",
     "start:debug": "alexa-skill-local --inspect-brk --file lambda/custom/index.js --config lambda/custom/asl-config.json",
