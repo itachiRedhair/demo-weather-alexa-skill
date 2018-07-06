@@ -30,6 +30,7 @@ const TellWeatherHandler = {
       console.log(deviceAddress);
 
       if (deviceAddress && deviceAddress.city) {
+        cityName = deviceAddress.city;
         weatherInfo = await fetchWeather(deviceAddress.city);
       }
     }
