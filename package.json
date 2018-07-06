@@ -10,6 +10,8 @@
     "deploy": "ask deploy -p alexa-user --force",
     "deploy:lambda": "ask deploy -t lambda -p alexa-user",
     "getModel": "ask api get-model -s amzn1.ask.skill.0bacc50a-5e85-49a8-a5ec-7022e427dd9c -g development -l en-US>models/en-US.json -p alexa-user",
+    "getSkill": "ask api get-skill -s amzn1.ask.skill.0bacc50a-5e85-49a8-a5ec-7022e427dd9c --stage development > skill.json -p alexa-user",
+    "getModelAndSkill": "npm run getModel && npm run getSkill",
     "uploadModelUS": "ask api update-model -s amzn1.ask.skill.0bacc50a-5e85-49a8-a5ec-7022e427dd9c --file models/en-US.json -l en-US --profile alexa-user --stage development"
   },
   "repository": {
