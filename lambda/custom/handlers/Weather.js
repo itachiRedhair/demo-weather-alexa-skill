@@ -25,7 +25,7 @@ const TellWeatherHandler = {
     let prompt;
     if (weatherInfo) {
       const temperature = weatherInfo.main.temp - 273;
-      prompt = `Currently the temperature in london in ${temperature.toFixed(2)} celsius.`;
+      prompt = `Currently the temperature in ${cityName} in ${temperature.toFixed(2)} celsius.`;
     } else {
       prompt = 'Sorry no weather information is available for this city.';
     }
@@ -34,7 +34,7 @@ const TellWeatherHandler = {
       .speak(prompt)
       .reprompt(`Ask me about weather in New York.`)
       .getResponse();
-  }
+  },
 };
 
 module.exports = { TellWeatherHandler };
