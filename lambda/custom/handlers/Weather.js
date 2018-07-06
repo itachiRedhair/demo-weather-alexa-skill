@@ -36,7 +36,7 @@ const TellWeatherHandler = {
     if (weatherInfo) {
       // Generating prompt based on temperature
       const temperature = weatherInfo.main.temp - 273;
-      prompt = `Currently the temperature in ${city} in ${temperature.toFixed(2)} celsius.`;
+      prompt = `Currently the temperature in ${cityName} in ${temperature.toFixed(2)} celsius.`;
 
       // Setting state attribute --> "WEATHER" for contextual response
       const attributes = handlerInput.attributesManager.getSessionAttributes();
